@@ -25,7 +25,9 @@ public class Spawner : MonoBehaviour {
 			Debug.Log ("Spawn rate capped by frame rate");
 		}
 
-		double threshold = spawnsPerSecond*Time.deltaTime/(6-(0.1*Time.deltaTime/60));  //float threshold
+		//double threshold = spawnsPerSecond*Time.deltaTime/(6-(0.1*Time.deltaTime/60));  //float threshold
+        //double threshold = spawnsPerSecond * Time.deltaTime/10;  //float threshold
+        double threshold = spawnsPerSecond * Time.deltaTime/5 + 2.2E-7*Time.realtimeSinceStartup;  //float threshold
 		print (threshold);
 		return (Random.value < threshold); 
 	}
